@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f2e8;
+  --foreground: #13231d;
+  --surface: #fffdf7;
+  --surface-strong: #f0e5d1;
+  --brand: #1e7c63;
+  --brand-strong: #0d5f4a;
+  --accent: #e7a93b;
+  --ink-soft: #57655d;
+  --line: rgba(19, 35, 29, 0.12);
+  --shadow-lg: 0 24px 80px rgba(20, 36, 28, 0.12);
+  --shadow-md: 0 18px 36px rgba(20, 36, 28, 0.08);
+  --font-manrope: "Aptos", "Noto Sans", "Segoe UI", sans-serif;
+  --font-space-grotesk: "Aptos Display", "Trebuchet MS", "Aptos", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-space-grotesk);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-manrope), sans-serif;
+  background-image:
+    radial-gradient(circle at top right, rgba(231, 169, 59, 0.24), transparent 22%),
+    radial-gradient(circle at left center, rgba(30, 124, 99, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(255, 253, 247, 0.9), rgba(248, 242, 232, 1));
+  min-height: 100vh;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+::selection {
+  background: rgba(30, 124, 99, 0.2);
+}
+
+.app-shell {
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.88), rgba(248, 242, 232, 0.94)),
+    linear-gradient(135deg, rgba(30, 124, 99, 0.06), transparent 40%);
+}
+
+.surface-card {
+  background: color-mix(in srgb, var(--surface) 92%, white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+
+.surface-card-strong {
+  background: linear-gradient(145deg, #fffaf0, #f4ead8);
+  border: 1px solid rgba(19, 35, 29, 0.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.display-font {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+.soft-grid {
+  background-image:
+    linear-gradient(rgba(19, 35, 29, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 35, 29, 0.05) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.glass-panel {
+  background: rgba(255, 252, 245, 0.84);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.status-dot::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  margin-right: 0.5rem;
+  background: currentColor;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(19, 35, 29, 0.18);
+  border-radius: 999px;
+  border: 3px solid rgba(248, 242, 232, 0.9);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }

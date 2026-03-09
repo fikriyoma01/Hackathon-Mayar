@@ -1,0 +1,431 @@
+{
+  "meta": {
+    "version": 1,
+    "lastUpdatedAt": "2026-03-08T23:10:37.442Z"
+  },
+  "users": [
+    {
+      "id": "user-admin",
+      "name": "Nadia Salsabila",
+      "email": "admin@iftarrelay.id",
+      "password": "ramadan123",
+      "role": "admin"
+    },
+    {
+      "id": "user-merchant",
+      "name": "Rafi Maulana",
+      "email": "merchant@iftarrelay.id",
+      "password": "ramadan123",
+      "role": "merchant",
+      "merchantId": "merchant-tebet-senja"
+    },
+    {
+      "id": "user-operator",
+      "name": "Aulia Rahman",
+      "email": "operator@iftarrelay.id",
+      "password": "ramadan123",
+      "role": "operator",
+      "nodeId": "node-masjid-tebet"
+    }
+  ],
+  "merchants": [
+    {
+      "id": "merchant-tebet-senja",
+      "name": "Warung Senja Tebet",
+      "ownerName": "Rafi Maulana",
+      "area": "Tebet, Jakarta Selatan",
+      "active": true,
+      "phone": "+62 812-8000-1111",
+      "etaMinutes": 12,
+      "rating": 4.9,
+      "specialty": "Nasi box iftar premium"
+    },
+    {
+      "id": "merchant-palmerah-lentera",
+      "name": "Dapur Lentera Palmerah",
+      "ownerName": "Siska Nur",
+      "area": "Palmerah, Jakarta Barat",
+      "active": true,
+      "phone": "+62 812-8000-2222",
+      "etaMinutes": 18,
+      "rating": 4.8,
+      "specialty": "Paket buka hemat keluarga"
+    },
+    {
+      "id": "merchant-cikini-rempah",
+      "name": "Kedai Rempah Cikini",
+      "ownerName": "Yusuf Hamdan",
+      "area": "Cikini, Jakarta Pusat",
+      "active": true,
+      "phone": "+62 812-8000-3333",
+      "etaMinutes": 15,
+      "rating": 4.7,
+      "specialty": "Menu rumahan dan takjil"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node-masjid-tebet",
+      "name": "Masjid Raya Tebet",
+      "type": "masjid",
+      "area": "Tebet",
+      "contactName": "Ustaz Hanan",
+      "contactPhone": "+62 812-2000-1001",
+      "active": true
+    },
+    {
+      "id": "node-komunitas-palmerah",
+      "name": "Komunitas Palmerah Bergerak",
+      "type": "komunitas",
+      "area": "Palmerah",
+      "contactName": "Dina Azzahra",
+      "contactPhone": "+62 812-2000-1002",
+      "active": true
+    }
+  ],
+  "portions": [
+    {
+      "id": "portion-tebet-01",
+      "merchantId": "merchant-tebet-senja",
+      "title": "Nasi Box Ayam Bakar Tebet",
+      "description": "Porsi siap pickup untuk 17.10-17.35, cocok untuk penyaluran cepat di radius Tebet.",
+      "totalPortions": 40,
+      "availablePortions": 12,
+      "sponsoredPortions": 18,
+      "distributedPortions": 8,
+      "price": 28000,
+      "sponsorPrice": 25000,
+      "pickupStartAt": "2026-03-09T10:10:00.000Z",
+      "pickupEndAt": "2026-03-09T10:35:00.000Z",
+      "expiresAt": "2026-03-09T01:10:37.438Z",
+      "status": "distributing",
+      "assignedNodeId": "node-masjid-tebet",
+      "tags": [
+        "cepat diambil",
+        "radius 3 km",
+        "halal"
+      ],
+      "lastUpdatedAt": "2026-03-08T22:10:37.438Z"
+    },
+    {
+      "id": "portion-palmerah-01",
+      "merchantId": "merchant-palmerah-lentera",
+      "title": "Paket Iftar Hemat Palmerah",
+      "description": "Menu nasi ayam suwir, kurma, dan air mineral. Siap pickup untuk titik Palmerah.",
+      "totalPortions": 30,
+      "availablePortions": 18,
+      "sponsoredPortions": 0,
+      "distributedPortions": 0,
+      "price": 26000,
+      "sponsorPrice": 24000,
+      "pickupStartAt": "2026-03-09T10:05:00.000Z",
+      "pickupEndAt": "2026-03-09T10:30:00.000Z",
+      "expiresAt": "2026-03-09T02:10:37.438Z",
+      "status": "available",
+      "assignedNodeId": "node-komunitas-palmerah",
+      "tags": [
+        "fresh",
+        "keluarga",
+        "pickup cepat"
+      ],
+      "lastUpdatedAt": "2026-03-08T22:10:37.438Z"
+    },
+    {
+      "id": "portion-cikini-01",
+      "merchantId": "merchant-cikini-rempah",
+      "title": "Bubur Kampiun dan Nasi Rempah",
+      "description": "Batch kolaborasi dengan komunitas relawan, sudah habis tersalurkan sebelum magrib.",
+      "totalPortions": 24,
+      "availablePortions": 0,
+      "sponsoredPortions": 24,
+      "distributedPortions": 24,
+      "price": 30000,
+      "sponsorPrice": 27000,
+      "pickupStartAt": "2026-03-09T09:45:00.000Z",
+      "pickupEndAt": "2026-03-09T10:15:00.000Z",
+      "expiresAt": "2026-03-08T22:10:37.438Z",
+      "status": "completed",
+      "assignedNodeId": "node-masjid-tebet",
+      "tags": [
+        "closed loop",
+        "done"
+      ],
+      "lastUpdatedAt": "2026-03-08T20:10:37.438Z"
+    },
+    {
+      "id": "portion-tebet-02",
+      "merchantId": "merchant-tebet-senja",
+      "title": "Takjil Box Kurma dan Roti",
+      "description": "Batch kecil yang dialihkan ke node komunitas karena voucher awal belum ditebus.",
+      "totalPortions": 18,
+      "availablePortions": 4,
+      "sponsoredPortions": 10,
+      "distributedPortions": 0,
+      "price": 26000,
+      "sponsorPrice": 24000,
+      "pickupStartAt": "2026-03-09T09:55:00.000Z",
+      "pickupEndAt": "2026-03-09T10:20:00.000Z",
+      "expiresAt": "2026-03-09T00:10:37.438Z",
+      "status": "rerouted",
+      "assignedNodeId": "node-komunitas-palmerah",
+      "tags": [
+        "reroute aktif",
+        "siap relawan"
+      ],
+      "lastUpdatedAt": "2026-03-08T22:10:37.438Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx-001",
+      "portionId": "portion-tebet-01",
+      "donorName": "Nadia Putri",
+      "donorEmail": "nadia@donatur.id",
+      "sponsoredPortions": 8,
+      "amount": 200000,
+      "status": "paid",
+      "paymentChannel": "QRIS Mayar",
+      "mayarInvoiceId": "MAYAR-TX001-8841",
+      "mayarPaymentUrl": "https://checkout.mayar.id/mock/MAYAR-TX001-8841",
+      "checkoutPath": "/checkout/tx-001",
+      "mayarQrString": "MAYARIFTAR8841NADIA",
+      "createdAt": "2026-03-08T19:10:37.438Z",
+      "expiresAt": "2026-03-08T20:10:37.438Z",
+      "paidAt": "2026-03-08T19:10:37.438Z",
+      "voucherId": "voucher-001",
+      "notes": "Pembayaran instan QRIS berhasil."
+    },
+    {
+      "id": "tx-002",
+      "portionId": "portion-tebet-01",
+      "donorName": "Komunitas Lentera",
+      "donorEmail": "support@lentera.id",
+      "sponsoredPortions": 10,
+      "amount": 250000,
+      "status": "paid",
+      "paymentChannel": "Payment Link",
+      "mayarInvoiceId": "MAYAR-TX002-2251",
+      "mayarPaymentUrl": "https://checkout.mayar.id/mock/MAYAR-TX002-2251",
+      "checkoutPath": "/checkout/tx-002",
+      "mayarQrString": "MAYARIFTAR2251LENTERA",
+      "createdAt": "2026-03-08T21:10:37.438Z",
+      "expiresAt": "2026-03-08T22:10:37.438Z",
+      "paidAt": "2026-03-08T21:10:37.438Z",
+      "voucherId": "voucher-002",
+      "notes": "Voucher aktif menunggu relawan pickup."
+    },
+    {
+      "id": "tx-003",
+      "portionId": "portion-palmerah-01",
+      "donorName": "Budi Rahman",
+      "donorEmail": "budi@donatur.id",
+      "sponsoredPortions": 6,
+      "amount": 144000,
+      "status": "expired",
+      "paymentChannel": "QRIS Mayar",
+      "mayarInvoiceId": "MAYAR-TX003-9018",
+      "mayarPaymentUrl": "https://checkout.mayar.id/mock/MAYAR-TX003-9018",
+      "checkoutPath": "/checkout/tx-003",
+      "mayarQrString": "MAYARIFTAR9018BUDI",
+      "createdAt": "2026-03-08T22:10:37.438Z",
+      "expiresAt": "2026-03-08T23:10:37.438Z",
+      "notes": "Menunggu pembayaran donatur via checkout Mayar."
+    },
+    {
+      "id": "tx-004",
+      "portionId": "portion-tebet-02",
+      "donorName": "Mayar Ramadan Fund",
+      "donorEmail": "impact@mayar.id",
+      "sponsoredPortions": 10,
+      "amount": 240000,
+      "status": "paid",
+      "paymentChannel": "Virtual Account",
+      "mayarInvoiceId": "MAYAR-TX004-7720",
+      "mayarPaymentUrl": "https://checkout.mayar.id/mock/MAYAR-TX004-7720",
+      "checkoutPath": "/checkout/tx-004",
+      "mayarQrString": "MAYARIFTAR7720FUND",
+      "createdAt": "2026-03-08T20:10:37.438Z",
+      "expiresAt": "2026-03-08T21:10:37.438Z",
+      "paidAt": "2026-03-08T20:10:37.438Z",
+      "voucherId": "voucher-003",
+      "notes": "Dialihkan otomatis ke komunitas setelah batas tebus awal lewat."
+    }
+  ],
+  "vouchers": [
+    {
+      "id": "voucher-001",
+      "code": "VCR-TEBET-401",
+      "portionId": "portion-tebet-01",
+      "transactionId": "tx-001",
+      "merchantId": "merchant-tebet-senja",
+      "assignedNodeId": "node-masjid-tebet",
+      "recipientAlias": "Penerima Tebet A",
+      "portionCount": 8,
+      "status": "redeemed",
+      "expiresAt": "2026-03-09T01:10:37.438Z",
+      "qrPayload": "iftarrelay://voucher/VCR-TEBET-401",
+      "createdAt": "2026-03-08T19:10:37.438Z",
+      "redeemedAt": "2026-03-08T20:10:37.438Z",
+      "proofActivityId": "dist-001"
+    },
+    {
+      "id": "voucher-002",
+      "code": "VCR-TEBET-598",
+      "portionId": "portion-tebet-01",
+      "transactionId": "tx-002",
+      "merchantId": "merchant-tebet-senja",
+      "assignedNodeId": "node-masjid-tebet",
+      "recipientAlias": "Relawan Masjid Tebet",
+      "portionCount": 10,
+      "status": "active",
+      "expiresAt": "2026-03-09T00:10:37.438Z",
+      "qrPayload": "iftarrelay://voucher/VCR-TEBET-598",
+      "createdAt": "2026-03-08T21:10:37.438Z"
+    },
+    {
+      "id": "voucher-003",
+      "code": "VCR-MGR-220",
+      "portionId": "portion-tebet-02",
+      "transactionId": "tx-004",
+      "merchantId": "merchant-tebet-senja",
+      "assignedNodeId": "node-komunitas-palmerah",
+      "recipientAlias": "Node Palmerah Bergerak",
+      "portionCount": 10,
+      "status": "rerouted",
+      "expiresAt": "2026-03-08T23:10:37.438Z",
+      "qrPayload": "iftarrelay://voucher/VCR-MGR-220",
+      "createdAt": "2026-03-08T20:10:37.438Z"
+    }
+  ],
+  "distributions": [
+    {
+      "id": "dist-001",
+      "voucherId": "voucher-001",
+      "portionId": "portion-tebet-01",
+      "nodeId": "node-masjid-tebet",
+      "actorName": "Aulia Rahman",
+      "actorRole": "Operator lapangan",
+      "locationLabel": "Masjid Raya Tebet",
+      "status": "completed",
+      "note": "Tervalidasi dan diterima sebelum adzan magrib.",
+      "taskDueAt": "2026-03-08T20:10:37.438Z",
+      "createdAt": "2026-03-08T19:10:37.438Z",
+      "updatedAt": "2026-03-08T20:10:37.438Z",
+      "proofImageUrl": "/proofs/penyaluran-tebet.svg"
+    },
+    {
+      "id": "dist-002",
+      "voucherId": "voucher-002",
+      "portionId": "portion-tebet-01",
+      "nodeId": "node-masjid-tebet",
+      "actorName": "Aulia Rahman",
+      "actorRole": "Operator lapangan",
+      "locationLabel": "Pickup merchant Warung Senja Tebet",
+      "status": "queued",
+      "note": "Menunggu relawan pickup dan scan voucher aktif.",
+      "taskDueAt": "2026-03-08T23:10:37.438Z",
+      "createdAt": "2026-03-08T21:10:37.438Z",
+      "updatedAt": "2026-03-08T21:10:37.438Z"
+    },
+    {
+      "id": "dist-003",
+      "voucherId": "voucher-003",
+      "portionId": "portion-tebet-02",
+      "nodeId": "node-komunitas-palmerah",
+      "actorName": "Sistem reroute",
+      "actorRole": "Auto allocation",
+      "locationLabel": "Komunitas Palmerah Bergerak",
+      "status": "rerouted",
+      "note": "Dialihkan otomatis karena voucher awal belum ditebus mendekati cutoff.",
+      "taskDueAt": "2026-03-08T23:10:37.438Z",
+      "createdAt": "2026-03-08T20:10:37.438Z",
+      "updatedAt": "2026-03-08T22:10:37.438Z"
+    },
+    {
+      "id": "dist-004",
+      "portionId": "portion-cikini-01",
+      "nodeId": "node-masjid-tebet",
+      "actorName": "Tim Cikini Solid",
+      "actorRole": "Relawan komunitas",
+      "locationLabel": "Koridor Stasiun Cikini",
+      "status": "completed",
+      "note": "Distribusi komunitas selesai dengan dokumentasi penuh.",
+      "taskDueAt": "2026-03-08T20:10:37.438Z",
+      "createdAt": "2026-03-08T18:10:37.438Z",
+      "updatedAt": "2026-03-08T20:10:37.438Z",
+      "proofImageUrl": "/proofs/iftar-cikini.svg"
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": "8f8d1529-09fa-47b0-9ee8-d8b333509fe5",
+      "timestamp": "2026-03-08T23:10:37.442Z",
+      "title": "Invoice kedaluwarsa",
+      "description": "Invoice MAYAR-TX003-9018 otomatis ditandai kedaluwarsa.",
+      "entityType": "payment",
+      "entityId": "tx-003",
+      "actor": "Mayar sync",
+      "tone": "warning"
+    },
+    {
+      "id": "log-001",
+      "title": "Voucher ditebus",
+      "description": "Voucher VCR-TEBET-401 berhasil diverifikasi di Masjid Raya Tebet.",
+      "entityType": "voucher",
+      "entityId": "voucher-001",
+      "actor": "Aulia Rahman",
+      "timestamp": "2026-03-08T20:10:37.438Z",
+      "tone": "success"
+    },
+    {
+      "id": "log-002",
+      "title": "Pembayaran Mayar diterima",
+      "description": "Invoice MAYAR-TX002-2251 lunas dan voucher digital langsung aktif.",
+      "entityType": "payment",
+      "entityId": "tx-002",
+      "actor": "Mayar webhook",
+      "timestamp": "2026-03-08T21:10:37.438Z",
+      "tone": "success"
+    },
+    {
+      "id": "log-003",
+      "title": "Reroute otomatis aktif",
+      "description": "Batch takjil dialihkan ke Komunitas Palmerah Bergerak agar porsi tidak terbuang.",
+      "entityType": "distribution",
+      "entityId": "dist-003",
+      "actor": "Mesin alokasi",
+      "timestamp": "2026-03-08T22:10:37.438Z",
+      "tone": "warning"
+    },
+    {
+      "id": "log-004",
+      "title": "Invoice sponsor dibuat",
+      "description": "Donatur Budi Rahman membuat invoice sponsor 6 porsi.",
+      "entityType": "transaction",
+      "entityId": "tx-003",
+      "actor": "Sistem checkout",
+      "timestamp": "2026-03-08T22:10:37.438Z",
+      "tone": "info"
+    },
+    {
+      "id": "log-005",
+      "title": "Batch siap pickup",
+      "description": "Paket Iftar Hemat Palmerah diperbarui dan siap untuk sponsor instan.",
+      "entityType": "portion",
+      "entityId": "portion-palmerah-01",
+      "actor": "Dapur Lentera Palmerah",
+      "timestamp": "2026-03-08T22:10:37.438Z",
+      "tone": "info"
+    },
+    {
+      "id": "log-006",
+      "title": "Distribusi komunitas selesai",
+      "description": "24 porsi di Cikini selesai disalurkan dengan bukti operasional lengkap.",
+      "entityType": "distribution",
+      "entityId": "dist-004",
+      "actor": "Tim Cikini Solid",
+      "timestamp": "2026-03-08T20:10:37.438Z",
+      "tone": "success"
+    }
+  ]
+}

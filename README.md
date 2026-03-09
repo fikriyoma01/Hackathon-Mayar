@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Iftar Relay
 
-## Getting Started
+Platform hiper-lokal untuk mengubah porsi buka puasa yang hampir tersisa menjadi bantuan makan yang cepat, terarah, dan bermartabat.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js 16 App Router
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- MariaDB / MySQL dari XAMPP
+- `mysql2` untuk koneksi database
+- Integrasi invoice dan webhook Mayar.id
+
+## Fitur Utama
+
+- Landing page berbahasa Indonesia dengan sponsor flow langsung
+- Login demo untuk `admin`, `merchant`, dan `operator`
+- Dashboard web untuk ringkasan metrik, transaksi, voucher, dan distribusi
+- Modul backoffice untuk merchant/node dan direktori donatur
+- Interface mobile-first untuk input porsi, scan QR kamera, verifikasi voucher, update tugas, dan upload bukti lapangan
+- Voucher digital publik di `/voucher/[code]`
+- Checkout sponsor di `/checkout/[transactionId]`
+- Penyimpanan penuh di MariaDB XAMPP dengan seed data otomatis
+- Pemakaian asset gambar nyata dari `public/images/`
+- Modul laporan dampak dan ekspor CSV operasional
+
+## Database XAMPP
+
+Aplikasi sekarang tidak lagi memakai file store sebagai persistence utama. Data dibaca dan ditulis ke database MariaDB XAMPP.
+
+Environment default:
+
+```env
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=iftar_relay
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Script database:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run db:setup
+npm run db:reset
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`db:setup` akan:
 
-## Learn More
+- membuat database `iftar_relay` bila belum ada
+- membuat schema tabel
+- mengisi seed data awal bila tabel masih kosong
 
-To learn more about Next.js, take a look at the following resources:
+## Integrasi Mayar.id
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Integrasi pembayaran sekarang mendukung mode langsung ke API Mayar resmi bila `MAYAR_API_KEY` tersedia.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Environment yang relevan:
 
-## Deploy on Vercel
+```env
+APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+MAYAR_API_BASE_URL=https://api.mayar.id/hl/v1
+MAYAR_CHECKOUT_BASE_URL=https://checkout.mayar.id
+MAYAR_API_KEY=
+MAYAR_WEBHOOK_URL=http://localhost:3000/api/mayar/webhook
+MAYAR_WEBHOOK_SECRET=
+MAYAR_WEBHOOK_TOKEN=
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Alur yang tersedia:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `POST /api/transactions`
+  - membuat invoice sponsor ke Mayar
+- `POST /api/transactions/[transactionId]/sync`
+  - sinkron manual status invoice dari Mayar
+- `POST /api/mayar/webhook`
+  - menerima webhook pembayaran dan mengaktifkan voucher
+- `POST /api/transactions/[transactionId]/pay`
+  - fallback simulasi lokal saat API key belum dipasang
+
+Jika `MAYAR_API_KEY` belum diisi, aplikasi tetap berjalan dengan fallback mock agar demo lokal tidak terblokir.
+
+Catatan:
+
+- endpoint create invoice dan detail invoice sudah diverifikasi live dengan API key Mayar
+- route webhook mendukung token verifikasi dari Mayar dan secret internal opsional untuk pengujian manual
+- file MCP Mayar ditulis ke `C:\Users\fikri\.codex\config.toml`
+- MCP Mayar sekarang dikonfigurasi sesuai dokumentasi resmi lewat `mcp-remote` dengan header `Authorization:${API_KEY}`
+- karena endpoint upstream bersifat SSE, config lokal tetap menambahkan `--transport sse-only`
+- endpoint upstream MCP tetap `https://mcp.mayar.id/sse`
+- env yang dipakai untuk child process MCP adalah `API_KEY`
+- sesi Codex saat ini perlu direstart agar server MCP `mayar` terbaca oleh tool layer
+- callback webhook live tetap membutuhkan URL publik, bukan `localhost`
+
+## Akun Demo
+
+- Admin
+  - `admin@iftarrelay.id`
+  - `ramadan123`
+- Merchant
+  - `merchant@iftarrelay.id`
+  - `ramadan123`
+- Operator
+  - `operator@iftarrelay.id`
+  - `ramadan123`
+
+## Menjalankan
+
+```bash
+npm install
+npm run db:setup
+npm run dev
+```
+
+Buka `http://localhost:3000`.
+
+## Rute Penting
+
+- `/` landing page dan sponsor flow
+- `/login` autentikasi demo
+- `/dashboard` dashboard web
+- `/dashboard/transactions` modul transaksi dan pembayaran
+- `/dashboard/network` manajemen merchant dan node distribusi
+- `/dashboard/donors` direktori donatur dan histori sponsorship
+- `/dashboard/reports` laporan dampak, alert operasional, dan export CSV
+- `/dashboard/vouchers` modul voucher digital
+- `/dashboard/distribution` monitoring distribusi dan bukti lapangan
+- `/mobile` interface operasional mobile-first
+
+## Verifikasi
+
+- `npm run db:setup`
+- `npm run lint`
+- `npm run build`

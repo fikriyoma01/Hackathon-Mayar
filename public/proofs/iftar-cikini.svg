@@ -1,0 +1,18 @@
+<svg width="960" height="640" viewBox="0 0 960 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="640" rx="32" fill="#13231D"/>
+  <rect x="48" y="48" width="864" height="544" rx="28" fill="#17352C"/>
+  <circle cx="742" cy="166" r="94" fill="#E7A93B" opacity="0.16"/>
+  <circle cx="202" cy="474" r="112" fill="#1E7C63" opacity="0.22"/>
+  <rect x="112" y="116" width="736" height="84" rx="24" fill="#FFF7E9"/>
+  <text x="148" y="168" fill="#14372D" font-family="Arial, sans-serif" font-size="30" font-weight="700">Distribusi komunitas Cikini selesai</text>
+  <rect x="112" y="242" width="236" height="236" rx="28" fill="#FFF7E9"/>
+  <rect x="380" y="242" width="468" height="100" rx="26" fill="#1E7C63"/>
+  <rect x="380" y="366" width="468" height="112" rx="26" fill="#F0E5D1"/>
+  <circle cx="230" cy="360" r="72" fill="#E7A93B" opacity="0.85"/>
+  <rect x="164" y="450" width="132" height="22" rx="11" fill="#14372D" opacity="0.18"/>
+  <rect x="414" y="276" width="260" height="24" rx="12" fill="#FFF7E9"/>
+  <rect x="414" y="316" width="210" height="18" rx="9" fill="#FFF7E9" opacity="0.45"/>
+  <rect x="414" y="400" width="240" height="24" rx="12" fill="#14372D" opacity="0.9"/>
+  <rect x="414" y="440" width="194" height="18" rx="9" fill="#14372D" opacity="0.28"/>
+  <text x="112" y="546" fill="#FFF7E9" font-family="Arial, sans-serif" font-size="24">Dokumentasi penyaluran · Koridor Stasiun Cikini</text>
+</svg>
